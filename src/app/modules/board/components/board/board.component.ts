@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Board from '../../data/Board';
+import { BoardService } from '../../services/board/board.service';
 
 @Component({
   selector: 'app-board',
@@ -8,19 +9,17 @@ import Board from '../../data/Board';
 })
 export class BoardComponent implements OnInit {
 
-  public board: Board = {
-    rows: 10,
-    columns: 8,
-    cells: []
+  public board: Board;
+  // Better share the state from somewhere with an observable: ngrx Store
+
+  constructor(
+    private boardService: BoardService 
+  ) {
+    this.board = this.boardService.init();
   }
 
   ngOnInit(): void {
-    this.board.cells = Array(this.board.rows * this.board.columns)
-      .fill(null)
-      .map( (_, index) => ({
-      column: index % this.board.columns,
-      row: Math.floor( index / this.board.columns ) + 1
-    }) );
+
   }
 
 }
