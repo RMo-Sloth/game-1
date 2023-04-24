@@ -1,3 +1,13 @@
-<div id="board">
-    <div class="cell" *ngFor="let cell of cells"></div>
+<div id="board" 
+    [ngStyle]="{
+    gridTemplateColumns: '25px repeat( ' + (board.columns + board.columns ) + ', 50px 25px)',
+    gridTemplateRows: 'repeat(' + (board.rows + 1) + ', 35px)'
+}">
+    <div class="cell" 
+        *ngFor="let cell of this.cells"
+        [ngStyle]="{
+            gridColumn: ( cell.column * 4 + ((cell.row % 2 === 1 ) ? 1: 3 ) ) + '/ span 3',
+            gridRow: cell.row + '/ span 2'
+        }"
+    ></div>
 </div>
