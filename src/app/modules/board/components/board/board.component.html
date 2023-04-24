@@ -4,9 +4,9 @@
     gridTemplateRows: 'repeat(' + (board.rows + 1) + ', 35px)'
 }">
     <div class="cell" 
-        *ngFor="let cell of this.cells"
+        *ngFor="let cell of this.board.cells"
         [ngStyle]="{
-            gridColumn: ( cell.column * 4 + ((cell.row % 2 === 1 ) ? 1: 3 ) ) + '/ span 3',
+            gridColumn: ( cell.column * 4 + (cell.row % 2 === 1 ? 1: 3 ) ) + '/ span 3',
             gridRow: cell.row + '/ span 2'
         }"
     ></div>
