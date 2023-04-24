@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import BoardCell from '../../data/BoardCell';
 
 @Component({
   selector: 'app-board',
@@ -11,7 +12,7 @@ export class BoardComponent implements OnInit {
     rows: 10,
     columns: 8
   }
-  public cells: any[] = [];
+  public cells: BoardCell[] = [];
 
   ngOnInit(): void {
     this.cells = Array(this.board.rows * this.board.columns)
