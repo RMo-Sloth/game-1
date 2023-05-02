@@ -27,7 +27,8 @@ export class BoardService {
       .map( (_, index) => ({
         // TODO: extract to BoardSellsService
         column: index % board.columns,
-        row: Math.floor( index / board.columns ) + 1
+        row: Math.floor( index / board.columns ) + 1,
+        id: index
       }) );
 
       return {
