@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import BoardCell from 'src/app/modules/board/data/BoardCell';
+import BoardCell from 'src/app/modules/board/services/board/board-cells/board-cell/BoardCell';
 
 @Injectable({
   providedIn: 'root'

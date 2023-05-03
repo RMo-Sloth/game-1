@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import BoardCell from '../../data/BoardCell';
+import BoardCell from '../../services/board/board-cells/board-cell/BoardCell';
 
 @Component({
   selector: 'app-board-cell[cell]',

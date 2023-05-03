@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Board from '../../data/Board';
+import Board from './Board';
 import { BoardCellsService } from './board-cells/board-cells.service';
 
 @Injectable({
