@@ -46,17 +46,23 @@ describe('BoardCellService', () => {
       expect( result.neighbours ).toEqual( [] );
     });
 
-    // it('should include neighbor 1 (top)', () => {
-    //   const result = service.create( 5,6,11 );
-    //   // console.log( result )
-    //   expect( result.neighbours ).toContain( 1 );
-    // });
+    it('should include neighbor 1 (top)', () => {
+      const result = service.create( 5,6,11 );
 
-    // it('should include neighbor 2 (right-top)', () => {
-    //   const result = service.create( 5,6,11 );
+      expect( result.neighbours ).toContain( 1 );
+    });
+
+    it('should include neighbor 2 (right-top)', () => {
+      const result = service.create( 5,6,11 );
       
-    //   expect( result.neighbours ).toContain( 6 );
-    // });
+      expect( result.neighbours ).toContain( 6 );
+    });
+
+    it('should include neighbor 2 (right-top) for even rows as well', () => {
+      const result = service.create( 5,6,6 );
+      
+      expect( result.neighbours ).toContain( 2 );
+    });
 
     // it('should include neighbor 3 (right-bottom)', () => {
     //   const result = service.create( 2,5,5 );
@@ -64,11 +70,11 @@ describe('BoardCellService', () => {
     //   expect( result.neighbours ).toContain( 7 );
     // });
 
-    // it( 'should include neighbor 4 (bottom)', () => {
-    //   const result = service.create( 2,5,5 );
+    it( 'should include neighbor 4 (bottom)', () => {
+      const result = service.create( 5,6,11 );
 
-    //   expect( result.neighbours ).toContain( 9 );
-    // });
+      expect( result.neighbours ).toContain( 21 );
+    });
 
     // it('should include neighbor 5 (left-bottom)', () => {
     //   const result = service.create( 2,5,5 );
@@ -76,11 +82,17 @@ describe('BoardCellService', () => {
     //   expect( result.neighbours ).toContain( 6 );
     // });
 
-    // it('should include neighbor 6 (left-top)', () => {
-    //   const result = service.create( 2,5,5 );
+    it('should include neighbor 6 (left-top)', () => {
+      const result = service.create( 5,6,11 );
       
-    //   expect( result.neighbours ).toContain( 2 );
-    // });
+      expect( result.neighbours ).toContain( 5 );
+    });
+
+    it('should include neighbor 6 (left-top) for even rows as well', () => {
+      const result = service.create( 5,6,6 );
+      
+      expect( result.neighbours ).toContain( 1 );
+    });
 
   });
 
