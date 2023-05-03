@@ -7,7 +7,7 @@ import BoardCell from 'src/app/modules/board/services/board/board-cells/board-ce
 export class BoardCellService {
 
   public create( column: number, row: number, id: number ): BoardCell {
-    return { column, row, id };
+    return { column, row, id, neighbours: [] };
   }
 
 }

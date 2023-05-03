@@ -40,6 +40,12 @@ describe('BoardCellService', () => {
       expect( result_2.row ).toBe( 9 );
     });
 
+    it('should provide an empty array as neighbours', () => {
+      const result = service.create( 8,9,2 );
+
+      expect( result.neighbours ).toBe( [] );
+    });
+
   });
 
 });
