@@ -40,10 +40,46 @@ describe('BoardCellService', () => {
       expect( result_2.row ).toBe( 9 );
     });
 
-    it('should provide an empty array as neighbours', () => {
-      const result = service.create( 8,9,2 );
+    it('should provide an empty array when there are no neighbours', () => {
+      const result = service.create( 1,1,0 );
 
-      expect( result.neighbours ).toBe( [] );
+      expect( result.neighbours ).toEqual( [] );
+    });
+
+    it('should include neighbor 1 (top)', () => {
+      const result = service.create( 2,5,5 );
+
+      expect( result.neighbours ).toContain( 1 );
+    });
+
+    it('should include neighbor 2 (right-top)', () => {
+      const result = service.create( 2,5,5 );
+      
+      expect( result.neighbours ).toContain( 3 );
+    });
+
+    it('should include neighbor 3 (right-bottom)', () => {
+      const result = service.create( 2,5,5 );
+      
+      expect( result.neighbours ).toContain( 7 );
+    });
+
+    it( 'should include neighbor 4 (bottom)', () => {
+      const result = service.create( 2,5,5 );
+
+      expect( result.neighbours ).toContain( 9 );
+    });
+
+    it('should include neighbor 5 (left-bottom)', () => {
+      const result = service.create( 2,5,5 );
+      
+      expect( result.neighbours ).toContain( 6 );
+    });
+
+    it('should include neighbor 6 (left-top)', () => {
+      const result = service.create( 2,5,5 );
+      
+      expect( result.neighbours ).toContain( 2 );
     });
 
   });
