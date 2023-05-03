@@ -1,5 +1,5 @@
 export default interface BoardCell {
-    row: number;
-    column: number;
-    id: number;
+    readonly row: number;
+    readonly column: number;
+    readonly id: number;
 }
