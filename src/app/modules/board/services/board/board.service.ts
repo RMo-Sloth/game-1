@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import Board from '../../data/Board';
-import BoardCell from '../../data/BoardCell';
+import { BoardCellsService } from '../board-cells/board-cells.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardService {
 
-  constructor() { }
+  constructor(
+    private board_cells_service: BoardCellsService
+  ) { }
 
   public init(): Board {
     const default_board = {
@@ -22,18 +24,9 @@ export class BoardService {
   }
 
   private generate_cells( board: Board ): Board {
-    const cells: BoardCell[] = Array(board.rows * board.columns)
-      .fill(null)
-      .map( (_, index) => ({
-        // TODO: extract to BoardSellsService
-        column: index % board.columns,
-        row: Math.floor( index / board.columns ) + 1,
-        id: index
-      }) );
-
       return {
         ...board,
-        cells
+        cells: this.board_cells_service.generate_records( board.rows, board.columns )
       }
   }
 
