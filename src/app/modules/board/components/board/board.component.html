@@ -7,7 +7,7 @@
         *ngFor="let cell of this.board.cells" 
         [cell]="cell"
         [ngStyle]="{
-            gridColumn: ( cell.column * 4 + (cell.row % 2 === 1 ? 1: 3 ) ) + '/ span 3',
+            gridColumn: cell.column * 4 - (cell.row % 2 === 1 ? 3: 1 ) + '/ span 3',
             gridRow: cell.row + '/ span 2'
         }"
     ></app-board-cell>
