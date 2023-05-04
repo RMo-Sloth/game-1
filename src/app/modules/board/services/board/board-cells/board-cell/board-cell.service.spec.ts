@@ -55,13 +55,13 @@ describe('BoardCellService', () => {
     it('should include neighbor 2 (right-top)', () => {
       const result = service.create( 5,6,11 );
       
-      expect( result.neighbours ).toContain( 6 );
+      expect( result.neighbours ).toContain( 12 );
     });
 
     it('should include neighbor 2 (right-top) for even rows as well', () => {
-      const result = service.create( 5,6,6 );
+      const result = service.create( 5,6,12 );
       
-      expect( result.neighbours ).toContain( 2 );
+      expect( result.neighbours ).toContain( 3 );
     });
 
     // it('should include neighbor 3 (right-bottom)', () => {
@@ -85,11 +85,11 @@ describe('BoardCellService', () => {
     it('should include neighbor 6 (left-top)', () => {
       const result = service.create( 5,6,11 );
       
-      expect( result.neighbours ).toContain( 5 );
+      expect( result.neighbours ).toContain( 10 );
     });
 
     it('should include neighbor 6 (left-top) for even rows as well', () => {
-      const result = service.create( 5,6,6 );
+      const result = service.create( 5,6,12 );
       
       expect( result.neighbours ).toContain( 1 );
     });

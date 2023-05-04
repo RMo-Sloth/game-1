@@ -13,8 +13,8 @@ export class BoardService {
 
   public init(): Board {
     const default_board = {
-      rows: 5,
-      columns: 2,
+      rows: 6,
+      columns: 5,
       cells: []
     };
     return this.generate_cells( default_board );

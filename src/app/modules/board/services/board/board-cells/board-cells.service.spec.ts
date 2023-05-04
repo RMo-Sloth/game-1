@@ -33,12 +33,17 @@ describe('BoardCellsService', () => {
     });
 
     it('should add the relevant row to the record', () => {
-      const result = service.generate_records( 2 , 2 );
+      const result = service.generate_records( 3 , 3 );
 
       expect(result[0].row).toBe( 1 );
       expect(result[1].row).toBe( 1 );
-      expect(result[2].row).toBe( 2 );
-      expect(result[3].row).toBe( 2 );
+      expect(result[2].row).toBe( 1 );
+      expect(result[3].row).toBe( 1 );
+      expect(result[4].row).toBe( 1 );
+      expect(result[5].row).toBe( 1 );
+      expect(result[6].row).toBe( 2 );
+      expect(result[7].row).toBe( 2 );
+      expect(result[8].row).toBe( 2 );
     });
 
     it('should add the relevant column to the record', () => {
@@ -46,8 +51,8 @@ describe('BoardCellsService', () => {
 
       expect(result[0].column).toBe( 1 );
       expect(result[1].column).toBe( 2 );
-      expect(result[2].column).toBe( 1 );
-      expect(result[3].column).toBe( 2 );
+      expect(result[2].column).toBe( 3 );
+      expect(result[3].column).toBe( 4 );
     });
 
     it('should assign the correct id', () => {
