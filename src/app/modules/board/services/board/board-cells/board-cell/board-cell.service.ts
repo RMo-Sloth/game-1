@@ -17,13 +17,12 @@ export class BoardCellService {
       neighbours.push( top_position );
 
     const top_right_position = id + (column % 2 ? -rows * 2 + 3: 1);
-    if( this.is_existing_cell( top_right_position, rows, columns) ) // also need to check not to add to last column
+    if( this.is_existing_cell( top_right_position, rows, columns) && !this.is_right_column( column, columns ) )
       neighbours.push( top_right_position );
 
-    // bottom-right position
-    // const position_3 = id + 2 * columns + 1;
-    // if( !this.is_in_last_row( row, rows ) )
-    //   neighbours.push( position_3 );
+    const bottom_right_position = column % 2 === 0 ? id + 1 + 2 * columns : id + 1;
+    if( this.is_existing_cell( bottom_right_position, rows, columns) && !this.is_right_column( column, columns ) )
+      neighbours.push( bottom_right_position );
     
     const bottom_position = id + 2 * columns;
     if( this.is_existing_cell( bottom_position, rows, columns) )
@@ -42,6 +41,10 @@ export class BoardCellService {
 
   private is_existing_cell( index: number, rows: number, columns: number ): boolean {
     return index >= 0 && index < columns * rows;
+  }
+
+  private is_right_column( column: number, columns: number ): boolean {
+    return column === 2 * columns;
   }
 
 }

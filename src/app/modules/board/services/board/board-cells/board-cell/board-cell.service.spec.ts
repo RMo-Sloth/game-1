@@ -64,11 +64,24 @@ describe('BoardCellService', () => {
       expect( result.neighbours ).toContain( 3 );
     });
 
-    // it('should include neighbor 3 (right-bottom)', () => {
-    //   const result = service.create( 2,5,5 );
+    it('should include bottom_right_position', () => {
+      const result = service.create( 5,6,11 );
       
-    //   expect( result.neighbours ).toContain( 7 );
-    // });
+      expect( result.neighbours ).toContain( 22 );
+    });
+
+    it('should include bottom_right_position for even columns', () => {
+      const result = service.create( 5,6,12 );
+      
+      expect( result.neighbours ).toContain( 13 );
+    });
+
+    it('should not include bottom_right_position for the last column', () => {
+      const result = service.create( 5,6,19 );
+      console.log( result );
+      
+      expect( result.neighbours ).not.toContain( 20 );
+    });
 
     it( 'should include neighbor 4 (bottom)', () => {
       const result = service.create( 5,6,11 );
