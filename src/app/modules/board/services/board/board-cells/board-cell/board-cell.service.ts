@@ -15,13 +15,30 @@ export class BoardCellService {
   }
 
   private compute_neighbours(id: number, columns: number, rows: number, column: number) {
+    // the plan
+    // x refactor to common column % 2 === 0  ternary
+    // x TEST
+    // split into 2 paths ( odd and even )
+    // TEST
+    // remove irrelevant code from both paths
+    // TEST
+    // ??? refactor to chains to calculate values ( arr.push().push() )
+    // ??? temporary filter out undefined
+    // ??? TEST
+    // 
+
+
     const neighbours = [];
 
     const top_position = id - 2 * columns;
     if (this.is_existing_cell(top_position, rows, columns))
       neighbours.push(top_position);
 
-    const top_right_position = id + (column % 2 ? -rows * 2 + 3 : 1);
+    const bottom_position = id + 2 * columns;
+    if (this.is_existing_cell(bottom_position, rows, columns))
+      neighbours.push(bottom_position);
+
+    const top_right_position = column % 2 === 0 ? 1 + id : -rows * 2 + id + 3;
     if (this.is_existing_cell(top_right_position, rows, columns) && !this.is_right_column(column, columns))
       neighbours.push(top_right_position);
 
@@ -29,15 +46,11 @@ export class BoardCellService {
     if (this.is_existing_cell(bottom_right_position, rows, columns) && !this.is_right_column(column, columns))
       neighbours.push(bottom_right_position);
 
-    const bottom_position = id + 2 * columns;
-    if (this.is_existing_cell(bottom_position, rows, columns))
-      neighbours.push(bottom_position);
-
     const bottom_left_position = column % 2 === 0 ? id + 2 * columns - 1 : id - 1;
     if (this.is_existing_cell(bottom_left_position, rows, columns) && column !== 1)
       neighbours.push(bottom_left_position);
 
-    const top_left_position = id + (column % 2 ? -rows * 2 + 1 : -1);
+    const top_left_position = column % 2 === 0 ? -1 + id : -rows * 2 + id + 1;
     if (this.is_existing_cell(top_left_position, rows, columns) && column !== 1)
       neighbours.push(top_left_position);
 
