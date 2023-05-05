@@ -33,7 +33,7 @@ export class BoardCellService {
     //   neighbours.push( position_5 );
 
     const top_left_position = id + (column % 2 ? -rows * 2 + 1: -1);
-    if( this.is_existing_cell( top_left_position, rows, columns) ) // also need to check not to add to first column
+    if( this.is_existing_cell( top_left_position, rows, columns) && column !== 1 )
       neighbours.push( top_left_position );
 
     return { column, row, id, neighbours };

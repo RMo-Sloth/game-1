@@ -95,16 +95,22 @@ describe('BoardCellService', () => {
     //   expect( result.neighbours ).toContain( 6 );
     // });
 
-    it('should include neighbor 6 (left-top)', () => {
+    it('should include top_left_position for odd rows', () => {
       const result = service.create( 5,6,11 );
       
       expect( result.neighbours ).toContain( 10 );
     });
 
-    it('should include neighbor 6 (left-top) for even rows as well', () => {
+    it('should include top_left_position for even rows', () => {
       const result = service.create( 5,6,12 );
       
       expect( result.neighbours ).toContain( 1 );
+    });
+
+    it('should not include top_left_position for the first column', () => {
+      const result = service.create( 5,6,20 );
+      
+      expect( result.neighbours ).not.toContain( 9 );
     });
 
   });
