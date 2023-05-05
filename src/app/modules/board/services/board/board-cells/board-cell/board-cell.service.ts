@@ -28,7 +28,7 @@ export class BoardCellService {
     if( this.is_existing_cell( bottom_position, rows, columns) )
       neighbours.push( bottom_position );
     
-    const bottom_left_position = id + 2 * columns - 1;
+    const bottom_left_position = column % 2 === 0 ? id + 2 * columns - 1 : id - 1;
     if( this.is_existing_cell( bottom_left_position, rows, columns) && column !== 1 )
       neighbours.push( bottom_left_position );
 

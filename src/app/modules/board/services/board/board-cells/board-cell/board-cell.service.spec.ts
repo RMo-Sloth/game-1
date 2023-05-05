@@ -88,10 +88,16 @@ describe('BoardCellService', () => {
       expect( result.neighbours ).toContain( 21 );
     });
 
-    it('should include bottom_left_position for odd rows', () => {
+    it('should include bottom_left_position for even rows', () => {
       const result = service.create( 5,6,11 );
       
       expect( result.neighbours ).toContain( 20 );
+    });
+
+    it('should include bottom_left_position for odd rows', () => {
+      const result = service.create( 5,6,12 );
+      
+      expect( result.neighbours ).toContain( 11 );
     });
 
     it('should not include bottom_left_position for the first column', () => {
@@ -100,13 +106,13 @@ describe('BoardCellService', () => {
       expect( result.neighbours ).not.toContain( 29 );
     });
 
-    it('should include top_left_position for odd rows', () => {
+    it('should include top_left_position for even rows', () => {
       const result = service.create( 5,6,11 );
       
       expect( result.neighbours ).toContain( 10 );
     });
 
-    it('should include top_left_position for even rows', () => {
+    it('should include top_left_position for odd rows', () => {
       const result = service.create( 5,6,12 );
       
       expect( result.neighbours ).toContain( 1 );
