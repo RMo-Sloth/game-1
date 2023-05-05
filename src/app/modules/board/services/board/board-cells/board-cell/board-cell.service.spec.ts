@@ -78,7 +78,6 @@ describe('BoardCellService', () => {
 
     it('should not include bottom_right_position for the last column', () => {
       const result = service.create( 5,6,19 );
-      console.log( result );
       
       expect( result.neighbours ).not.toContain( 20 );
     });
@@ -89,10 +88,16 @@ describe('BoardCellService', () => {
       expect( result.neighbours ).toContain( 21 );
     });
 
-    it('should include left_bottom_position for odd rows', () => {
+    it('should include bottom_left_position for odd rows', () => {
       const result = service.create( 5,6,11 );
       
       expect( result.neighbours ).toContain( 20 );
+    });
+
+    it('should not include bottom_left_position for the first column', () => {
+      const result = service.create( 5,6,20 );
+      
+      expect( result.neighbours ).not.toContain( 29 );
     });
 
     it('should include top_left_position for odd rows', () => {
