@@ -89,11 +89,11 @@ describe('BoardCellService', () => {
       expect( result.neighbours ).toContain( 21 );
     });
 
-    // it('should include neighbor 5 (left-bottom)', () => {
-    //   const result = service.create( 2,5,5 );
+    it('should include left_bottom_position for odd rows', () => {
+      const result = service.create( 5,6,11 );
       
-    //   expect( result.neighbours ).toContain( 6 );
-    // });
+      expect( result.neighbours ).toContain( 20 );
+    });
 
     it('should include top_left_position for odd rows', () => {
       const result = service.create( 5,6,11 );
