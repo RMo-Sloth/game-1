@@ -7,14 +7,12 @@ import BoardCell from 'src/app/modules/board/services/board/board-cells/board-ce
 export class BoardCellService {
 
   public create( rows: number, columns: number, id: number ): BoardCell {
-    
+
     const row = Math.floor( id / (columns * 2) ) + 1;
     const coordinates = [];
-
-
     coordinates[0] = Math.floor( id / rows ) + 1;
     coordinates[1] = id % rows + 1 - Math.floor( coordinates[0] / 2 );
-
+    coordinates[2] = id % rows + coordinates[0] - Math.floor( coordinates[0] / 2 );
 
     // const neighbours: number[] = this.compute_neighbours(id, columns, rows, coordinates[0]);
 

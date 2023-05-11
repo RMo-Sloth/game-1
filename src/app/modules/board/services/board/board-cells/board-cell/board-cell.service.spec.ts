@@ -64,6 +64,18 @@ describe('BoardCellService', () => {
         expect( service.create( 2,3,4 ).coordinates[1] ).toBe( 0 );
         expect( service.create( 2,3,5 ).coordinates[1] ).toBe( 1 );
       });
+
+      it('should assign the correct third coordinate', () => {
+        expect( service.create( 1,1,0 ).coordinates[2] ).toBe( 1 );
+
+        expect( service.create( 2,3,0 ).coordinates[2] ).toBe( 1 );
+        expect( service.create( 2,3,1 ).coordinates[2] ).toBe( 2 );
+        expect( service.create( 2,3,2 ).coordinates[2] ).toBe( 1 );
+        expect( service.create( 2,3,3 ).coordinates[2] ).toBe( 2 );
+        expect( service.create( 2,3,4 ).coordinates[2] ).toBe( 2 );
+        expect( service.create( 2,3,5 ).coordinates[2] ).toBe( 3 );
+      });
+
     });
 
     // it('should provide an empty array when there are no neighbours', () => {
