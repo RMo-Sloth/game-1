@@ -25,22 +25,22 @@ describe('BoardCellService', () => {
     });
 
     // test will disappear in favor of coordinates[0]
-    it('should have the correct column property', () => {
-      const result = service.create( 1,1,0 );
-      const result_2 = service.create( 8,9,2 );
+    // it('should have the correct column property', () => {
+    //   const result = service.create( 1,1,0 );
+    //   const result_2 = service.create( 8,9,2 );
 
-      expect( result.column ).toBe( 1 );
-      expect( result_2.column ).toBe( 3 );
-    });
+    //   expect( result.column ).toBe( 1 );
+    //   expect( result_2.column ).toBe( 3 );
+    // });
     
     // test will disappean
-    it('should have the correct row property', () => {
-      const result = service.create( 1,1,0 );
-      const result_2 = service.create( 8,9,2 );
+    // it('should have the correct row property', () => {
+    //   const result = service.create( 1,1,0 );
+    //   const result_2 = service.create( 8,9,2 );
 
-      expect( result.row ).toBe( 1 );
-      expect( result_2.row ).toBe( 1 );
-    });
+    //   expect( result.row ).toBe( 1 );
+    //   expect( result_2.row ).toBe( 1 );
+    // });
 
     describe( 'coordinates', () => {
       it('should assign the correct first coordinate', () => {
@@ -52,6 +52,17 @@ describe('BoardCellService', () => {
         expect( service.create( 2,3,3 ).coordinates[0] ).toBe( 2 );
         expect( service.create( 2,3,4 ).coordinates[0] ).toBe( 3 );
         expect( service.create( 2,3,5 ).coordinates[0] ).toBe( 3 );
+      });
+
+      it('should assign the correct second coordinate', () => {
+        expect( service.create( 1,1,0 ).coordinates[1] ).toBe( 1 );
+
+        expect( service.create( 2,3,0 ).coordinates[1] ).toBe( 1 );
+        expect( service.create( 2,3,1 ).coordinates[1] ).toBe( 2 );
+        expect( service.create( 2,3,2 ).coordinates[1] ).toBe( 0 );
+        expect( service.create( 2,3,3 ).coordinates[1] ).toBe( 1 );
+        expect( service.create( 2,3,4 ).coordinates[1] ).toBe( 0 );
+        expect( service.create( 2,3,5 ).coordinates[1] ).toBe( 1 );
       });
     });
 

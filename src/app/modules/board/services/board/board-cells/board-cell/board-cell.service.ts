@@ -6,17 +6,22 @@ import BoardCell from 'src/app/modules/board/services/board/board-cells/board-ce
 })
 export class BoardCellService {
 
-  public create( columns: number, rows: number, id: number ): BoardCell {
+  public create( rows: number, columns: number, id: number ): BoardCell {
     // NOTICE: I am merging 2 columns in 1 row to accommodate the hex grid in a somewhat comprehensible way
     // EXTRA NOTE: Maybe it's even better to use 3 axis ( top-to-bottom, top-left to bottom-right and top-right to bottom-left ) instead of 2 ( column and row )
     // That would make the neighbour calculations much easier, but slightly weird to define a grid-size
-    const column = (( Math.floor( id / columns ) % 2 === 0) ? 0 : columns) + id % columns + 1;
+    // const column = (( Math.floor( id / columns ) % 2 === 0) ? 0 : columns) + id % columns + 1;
     const row = Math.floor( id / (columns * 2) ) + 1;
     const coordinates = [];
-    coordinates[0] = Math.floor( id / columns ) + 1;
+
+
+    coordinates[0] = Math.floor( id / rows ) + 1;
+    coordinates[1] = id % rows + 1 - Math.floor( coordinates[0] / 2 );
+
+
     // const neighbours: number[] = this.compute_neighbours(id, columns, rows, coordinates[0]);
 
-    return { column, row, id, neighbours: [], coordinates };
+    return { column: 0, row, id, neighbours: [], coordinates };
   }
 
   // private compute_neighbours(id: number, columns: number, rows: number, column: number): number[] {

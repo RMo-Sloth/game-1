@@ -14,7 +14,7 @@ export class BoardCellsService {
   public generate_records( rows: number, columns: number ): BoardCell[] {
     return Array(rows * columns).fill( null )
       .map( (_, index) => { 
-        return this.board_cell_service.create( columns, rows, index );
+        return this.board_cell_service.create( rows, columns, index );
       } );
   }
 
