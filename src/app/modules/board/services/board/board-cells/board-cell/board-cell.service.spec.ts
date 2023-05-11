@@ -17,8 +17,8 @@ describe('BoardCellService', () => {
   describe( 'create(column, row, id)', () => {
 
     it('should have the correct id property', () => {
-      const result = service.create( 1,1,0 );
-      const result_2 = service.create( 8,9,2 );
+      const result = service.create( 1,0 );
+      const result_2 = service.create( 8,2 );
 
       expect( result.id ).toBe( 0 );
       expect( result_2.id ).toBe( 2 );
@@ -44,36 +44,36 @@ describe('BoardCellService', () => {
 
     describe( 'coordinates', () => {
       it('should assign the correct first coordinate', () => {
-        expect( service.create( 1,1,0 ).coordinates[0] ).toBe( 1 );
+        expect( service.create( 1,0 ).coordinates[0] ).toBe( 1 );
 
-        expect( service.create( 2,3,0 ).coordinates[0] ).toBe( 1 );
-        expect( service.create( 2,3,1 ).coordinates[0] ).toBe( 1 );
-        expect( service.create( 2,3,2 ).coordinates[0] ).toBe( 2 );
-        expect( service.create( 2,3,3 ).coordinates[0] ).toBe( 2 );
-        expect( service.create( 2,3,4 ).coordinates[0] ).toBe( 3 );
-        expect( service.create( 2,3,5 ).coordinates[0] ).toBe( 3 );
+        expect( service.create( 2,0 ).coordinates[0] ).toBe( 1 );
+        expect( service.create( 2,1 ).coordinates[0] ).toBe( 1 );
+        expect( service.create( 2,2 ).coordinates[0] ).toBe( 2 );
+        expect( service.create( 2,3 ).coordinates[0] ).toBe( 2 );
+        expect( service.create( 2,4 ).coordinates[0] ).toBe( 3 );
+        expect( service.create( 2,5 ).coordinates[0] ).toBe( 3 );
       });
 
       it('should assign the correct second coordinate', () => {
-        expect( service.create( 1,1,0 ).coordinates[1] ).toBe( 1 );
+        expect( service.create( 1,0 ).coordinates[1] ).toBe( 1 );
 
-        expect( service.create( 2,3,0 ).coordinates[1] ).toBe( 1 );
-        expect( service.create( 2,3,1 ).coordinates[1] ).toBe( 2 );
-        expect( service.create( 2,3,2 ).coordinates[1] ).toBe( 0 );
-        expect( service.create( 2,3,3 ).coordinates[1] ).toBe( 1 );
-        expect( service.create( 2,3,4 ).coordinates[1] ).toBe( 0 );
-        expect( service.create( 2,3,5 ).coordinates[1] ).toBe( 1 );
+        expect( service.create( 2,0 ).coordinates[1] ).toBe( 1 );
+        expect( service.create( 2,1 ).coordinates[1] ).toBe( 2 );
+        expect( service.create( 2,2 ).coordinates[1] ).toBe( 0 );
+        expect( service.create( 2,3 ).coordinates[1] ).toBe( 1 );
+        expect( service.create( 2,4 ).coordinates[1] ).toBe( 0 );
+        expect( service.create( 2,5 ).coordinates[1] ).toBe( 1 );
       });
 
       it('should assign the correct third coordinate', () => {
-        expect( service.create( 1,1,0 ).coordinates[2] ).toBe( 1 );
+        expect( service.create( 1,0 ).coordinates[2] ).toBe( 1 );
 
-        expect( service.create( 2,3,0 ).coordinates[2] ).toBe( 1 );
-        expect( service.create( 2,3,1 ).coordinates[2] ).toBe( 2 );
-        expect( service.create( 2,3,2 ).coordinates[2] ).toBe( 1 );
-        expect( service.create( 2,3,3 ).coordinates[2] ).toBe( 2 );
-        expect( service.create( 2,3,4 ).coordinates[2] ).toBe( 2 );
-        expect( service.create( 2,3,5 ).coordinates[2] ).toBe( 3 );
+        expect( service.create( 2,0 ).coordinates[2] ).toBe( 1 );
+        expect( service.create( 2,1 ).coordinates[2] ).toBe( 2 );
+        expect( service.create( 2,2 ).coordinates[2] ).toBe( 1 );
+        expect( service.create( 2,3 ).coordinates[2] ).toBe( 2 );
+        expect( service.create( 2,4 ).coordinates[2] ).toBe( 2 );
+        expect( service.create( 2,5 ).coordinates[2] ).toBe( 3 );
       });
 
     });

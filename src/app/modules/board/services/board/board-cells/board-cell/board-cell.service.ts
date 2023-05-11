@@ -6,7 +6,7 @@ import BoardCell from 'src/app/modules/board/services/board/board-cells/board-ce
 })
 export class BoardCellService {
 
-  public create( rows: number, columns: number, id: number ): BoardCell {
+  public create( rows: number, id: number ): BoardCell {
 
     const coordinates = [
       Math.floor( id / rows ) + 1,
