@@ -1,14 +1,14 @@
 <div id="board" 
     [ngStyle]="{
-    gridTemplateColumns: '25px repeat( ' + 2* board.columns + ', 50px 25px)',
-    gridTemplateRows: 'repeat(' + (board.rows + 1) + ', 40px)'
+    gridTemplateColumns: '25px repeat( ' + 2* board.columns +', 50px 25px)',
+    gridTemplateRows: 'repeat(' + (board.rows * 2 + 1) + ', 40px)'
 }">
     <app-board-cell 
         *ngFor="let cell of this.board.cells"
         [cell]="cell"
         [ngStyle]="{
-            gridColumn: cell.column * 2 - 1 + '/ span 3',
-            gridRow: cell.row * 2 + ( cell.column % 2 ? 0 : 1 ) - 1 + '/ span 2'
+            gridColumn: cell.coordinates[0] * 2  - 1 + '/ span 3',
+            gridRow: cell.coordinates[1] * 2 + cell.coordinates[0] - 1 + '/ span 2'
         }"
     ></app-board-cell>
 </div>
