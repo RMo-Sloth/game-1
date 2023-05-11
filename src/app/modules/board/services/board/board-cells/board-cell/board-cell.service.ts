@@ -7,9 +7,7 @@ import BoardCell from 'src/app/modules/board/services/board/board-cells/board-ce
 export class BoardCellService {
 
   public create( rows: number, columns: number, id: number ): BoardCell {
-    // NOTICE: I am merging 2 columns in 1 row to accommodate the hex grid in a somewhat comprehensible way
-    // EXTRA NOTE: Maybe it's even better to use 3 axis ( top-to-bottom, top-left to bottom-right and top-right to bottom-left ) instead of 2 ( column and row )
-    // That would make the neighbour calculations much easier, but slightly weird to define a grid-size
+    
     const row = Math.floor( id / (columns * 2) ) + 1;
     const coordinates = [];
 
