@@ -46,15 +46,6 @@ describe('BoardCellsService', () => {
       expect(result[8].row).toBe( 2 );
     });
 
-    // it('should add the relevant column to the record', () => {
-    //   const result = service.generate_records( 2 , 2 );
-
-    //   expect(result[0].column).toBe( 1 );
-    //   expect(result[1].column).toBe( 2 );
-    //   expect(result[2].column).toBe( 3 );
-    //   expect(result[3].column).toBe( 4 );
-    // });
-
     it('should assign the correct id', () => {
       const result = service.generate_records(2,2);
 

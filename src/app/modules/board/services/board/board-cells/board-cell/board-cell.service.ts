@@ -10,7 +10,6 @@ export class BoardCellService {
     // NOTICE: I am merging 2 columns in 1 row to accommodate the hex grid in a somewhat comprehensible way
     // EXTRA NOTE: Maybe it's even better to use 3 axis ( top-to-bottom, top-left to bottom-right and top-right to bottom-left ) instead of 2 ( column and row )
     // That would make the neighbour calculations much easier, but slightly weird to define a grid-size
-    // const column = (( Math.floor( id / columns ) % 2 === 0) ? 0 : columns) + id % columns + 1;
     const row = Math.floor( id / (columns * 2) ) + 1;
     const coordinates = [];
 
@@ -21,7 +20,7 @@ export class BoardCellService {
 
     // const neighbours: number[] = this.compute_neighbours(id, columns, rows, coordinates[0]);
 
-    return { column: 0, row, id, neighbours: [], coordinates };
+    return { row, id, neighbours: [], coordinates };
   }
 
   // private compute_neighbours(id: number, columns: number, rows: number, column: number): number[] {
