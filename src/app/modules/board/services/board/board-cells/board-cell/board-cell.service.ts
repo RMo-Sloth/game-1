@@ -8,7 +8,6 @@ export class BoardCellService {
 
   public create( rows: number, columns: number, id: number ): BoardCell {
 
-    const row = Math.floor( id / (columns * 2) ) + 1;
     const coordinates = [];
     coordinates[0] = Math.floor( id / rows ) + 1;
     coordinates[1] = id % rows + 1 - Math.floor( coordinates[0] / 2 );
@@ -16,7 +15,7 @@ export class BoardCellService {
 
     // const neighbours: number[] = this.compute_neighbours(id, columns, rows, coordinates[0]);
 
-    return { row, id, neighbours: [], coordinates };
+    return { id, neighbours: [], coordinates };
   }
 
   // private compute_neighbours(id: number, columns: number, rows: number, column: number): number[] {
